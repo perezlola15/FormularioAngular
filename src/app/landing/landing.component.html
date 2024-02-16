@@ -1,43 +1,31 @@
-<p>Hola</p>
-<!--<h2>Formulario de registro</h2>
+<h2>Formulario de registro</h2>
 <form id="formulario">
   <div id="alerta" class="alertOculta">
-    <img src="alerta.png" alt="Alerta">
-    <p id="alertaNombre" *ngIf="!validarNombre()">Debes completar el campo nombre.</p>
-    <p id="alertaApel" *ngIf="!validarApellido1()">Debes completar el campo primer apellido.</p>
-    <p id="alertaEmail" *ngIf="!validarEmail()">El formato del email no es válido.</p>
-    <p id="alertaContr" *ngIf="!validarContrasena()">Las contraseñas no coinciden.</p>
+    <img src="assets/alerta.png" alt="Alerta">
+    <p id="alertaNombre"></p>
+    <p id="alertaApel"></p>
+    <p id="alertaEmail"></p>
+    <p id="alertaContr"></p>
   </div>
 
   <div class="checkbox-wrapper-2">
-    <input type="checkbox" class="sc-gJwTLC oscuro" id="oscuro" (change)="toggleModoOscuro()">
+    <input type="checkbox" class="oscuro" id="oscuro" [(ngModel)]="modoOscuroActivado"
+      (ngModelChange)="toggleModoOscuro()">
     <label for="oscuro">Modo oscuro</label>
   </div><br />
 
   <label for="nombre">Nombre</label>
   <input type="text" name="nombre" id="nombre" [(ngModel)]="nombre"><br /><br />
+  <!--<div *ngIf="!validarCampoVacio(nombre)">Debes completar el campo nombre.</div><br /><br />-->
 
   <label for="apellido1">Primer apellido</label>
   <input type="text" name="apellido1" id="apellido1" [(ngModel)]="apellido1"><br /><br />
 
-  <label for="apellido2">Segundo apellido</label>
+  <label for="apellido1">Segundo apellido</label>
   <input type="text" name="apellido2" id="apellido2" [(ngModel)]="apellido2"><br /><br />
 
   <label for="telefono">Teléfono</label>
-  <div class="telefono">
-    <div class="tlfn">
-      <select name="prefijo" [(ngModel)]="prefijo">
-        <option value="es" selected>+34</option>
-        <option value="uk">+44</option>
-        <option value="it">+39</option>
-        <option value="de">+49</option>
-        <option value="pt">+351</option>
-      </select>
-    </div>
-    <div class="tlfn2">
-      <input type="tel" name="telefono" id="telefono" [(ngModel)]="telefono"><br /><br />
-    </div>
-  </div>
+  <input type="tel" name="telefono" id="telefono" [(ngModel)]="telefono"><br /><br />
 
   <label for="fecha_nac">Fecha nacimiento</label>
   <input type="date" name="fecha_nac" id="fecha_nac" [(ngModel)]="fecha_nac"><br /><br />
@@ -47,15 +35,14 @@
 
   <div class="campoContr">
     <label for="contrasena">Contraseña</label>
-    <input type="{{ mostrarContrasena ? 'text' : 'password' }}" name="contrasena" id="contrasena" [(ngModel)]="contrasena"><br /><br />
-    <button type="button" (click)="toggleMostrarContrasena()" id="special-button">👁️‍🗨️</button>
+    <input type="password" name="contrasena" id="contrasena" [(ngModel)]="contrasena"><br /><br />
+    <button type="button" (click)="mostrarContrasena()" id="special-button">👁️‍🗨️</button>
   </div>
 
   <label for="contrasena_rep">Repite contraseña</label>
   <input type="password" name="contrasena_rep" id="contrasena_rep" [(ngModel)]="contrasena_rep"><br /><br />
 
-  <button type="button" (click)="generarContrasena()" id="generar">Generar contraseña</button>
-  <button type="button" (click)="registraFormulario()" id="registrar">Registrar</button>
+  <button type="button" id="generar" (click)="generarContrasena()">Generar contraseña</button>
+  <button type="button" id="registrar" (click)="registraFormulario()">Registrar</button>
   <button type="reset" id="limpiar">Limpiar</button>
-</form>-->
-
+</form>
